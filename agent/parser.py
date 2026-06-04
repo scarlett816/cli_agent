@@ -15,4 +15,7 @@ def parse_tool_call(text):
         if line.startswith("ARGS:"):
             args = line.replace("ARGS:", "").strip()
 
-    return tool_name, args
+    if tool_name:
+        return tool_name, args
+
+    return None, None
